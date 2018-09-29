@@ -19,13 +19,13 @@ module divider
    clk,
    rst_n,
    divide_in,
-   clkout
+   clock_out
    );
 
    input 	clk;
    input 	rst_n;
    input [7 : 0] divide_in;
-   output 		 clkout;
+   output 		 clock_out;
 
    reg [7 : 0] divide;
    reg [6 : 0] divide_half;
@@ -86,6 +86,6 @@ module divider
 	  end
    end
 
-   assign clkout = (divide[7 : 0] == 0) ? clk : divide[0] ? clk_p : (clk_p & clk_n);
+   assign clock_out = (divide[7 : 0] == 0) ? clk : divide[0] ? clk_p : (clk_p & clk_n);
 
 endmodule
